@@ -8,5 +8,7 @@ require (
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/labstack/echo/v4 v4.1.17
 	github.com/lib/pq v1.8.0 // indirect
+	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/mattn/go-sqlite3 v1.14.4 // indirect
+	golang.org/x/sys v0.0.0-20201106081118-db71ae66460a // indirect
 )
