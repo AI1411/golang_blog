@@ -1,17 +1,21 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{% block title %}MyTechBlog{% endblock %}</title>
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link rel="stylesheet" href="../css/layout.css">
 
     {% block css %}{% endblock %}
 </head>
 
 <body>
 <header>
-    <h1><a href="/">MyTechBlog</a></h1>
+    <div class="header">
+        <a href="/" class="header__logo">Tech Blog</a>
+    </div>
 </header>
 
 <main>
@@ -19,7 +23,15 @@
 </main>
 
 <footer>
-
+<div class="footer">
+    <ul class="footer__menu">
+        <li class="footer__menu-item">akira</li>
+        <li class="footer__menu-item">ishii</li>
+        <li class="footer__menu-item">portfolio</li>
+        <li class="footer__menu-item">blog</li>
+    </ul>
+    <div class="footer__copy-right">akira ishii 2020</div>
+</div>
 </footer>
 
 {% block js %}{% endblock %}
