@@ -16,6 +16,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 新規作成画面か編集画面かを URL から判定します。
     const mode = { method: '', url: '' };
+
+    const csrfToken = document.getElementsByName('csrf')[0].content;
+
+    saveBtn.addEventListener('click', event => {
+        event.preventDefault();
+
+        const fd = new FormData(form);
+
+        let status;
+
+        fetch(url, {
+            method: method,
+            headers: {'X-CSRF-Token': csrfToken},
+            body: fd
+        })
+            .then(res => {
+                status = res.status;
+                return res.json();
+            })
+            .then(body => {
+                console.log(JSON.stringify(body));
+
+                if (status === 200) {
+                    window.location.href = url;
+                }
+                if (body.ValidationErrors) {
+
+                }
+            })
+            .catch(err => console.error(err));
+    })
+
     if (window.location.pathname.endsWith('new')) {
         // 新規作成時の HTTP メソッドは POST を利用します。
         mode.method = 'POST';
